@@ -134,7 +134,7 @@ public class MenuKontraktor {
             System.out.println("Tidak ada perubahan yang dimasukkan. Informasi tidak diperbarui.");
         }
     }
-
+//
     private void hapusPenggunaKontraktor(String idUser) {
         System.out.println("Apakah Anda yakin ingin menghapus akun Anda?");
         System.out.println("1. Iya");
