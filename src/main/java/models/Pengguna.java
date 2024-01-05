@@ -62,6 +62,7 @@ public abstract class Pengguna {
     }
 
     public void displayInfo() {
+        System.out.println("=====================================" );
         System.out.println("Nama: " + nama);
         System.out.println("Nomor HP: " + noHP);
         System.out.println("Email: " + email);

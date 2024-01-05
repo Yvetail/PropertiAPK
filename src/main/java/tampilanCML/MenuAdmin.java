@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -23,6 +23,8 @@ public class MenuAdmin {
     private Scanner scanner;
     private PropertiDAO pp1;
     private PembeliDAO pb1;
+    private Pembeli p1;
+    private Kontraktor k1;
     private KontraktorDAO kk1;
     private Properti g1 = new Properti();
     //private PropertiDAO g2 = new PropertiDAO();
@@ -32,6 +34,8 @@ public class MenuAdmin {
         pp1 = new PropertiDAO();
         pb1 = new PembeliDAO();
         kk1 = new KontraktorDAO();
+        k1 = new Kontraktor();
+        p1 = new Pembeli();
     }
 
     public void tampilkanMenu() {
@@ -259,6 +263,10 @@ public class MenuAdmin {
 
     private void semuaInformasiProperti() {
         // Logika untuk menampilkan semua informasi properti
+        List<Properti> lP = pp1.getSemuaProperti();
+                    for(Properti i : lP){
+                        g1.displayProperti(i);
+                    }
     }
 
     private void tambahAkunPembeli()  {
@@ -284,6 +292,7 @@ public class MenuAdmin {
 
     private void updateAkunPembeli() {
         // Logika untuk mengupdate akun pembeli
+        
     }
 
     private void hapusAkunPembeli() {

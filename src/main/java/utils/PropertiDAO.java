@@ -59,7 +59,7 @@ public class PropertiDAO extends BaseDAO {
 
     public List<Properti> getSemuaProperti() {
         List<Properti> propertis = new ArrayList<>();
-        String query = "SELECT * FROM revisi.properti";
+        String query = "SELECT p.*, u.nama AS nama_pengguna FROM revisi.properti p LEFT JOIN revisi.pengguna u ON p.idUser = u.idUser";
         try (PreparedStatement pS = conn.prepareStatement(query); ResultSet resultSet = pS.executeQuery()) {
 
             while (resultSet.next()) {
@@ -73,10 +73,17 @@ public class PropertiDAO extends BaseDAO {
                 double luasRumah = resultSet.getDouble("luasRumah"); // Gunakan nama kolom yang tepat
                 double jumlahDiFavoritkan = resultSet.getDouble("jumlahDiFavoritkan");
                 String idUser = resultSet.getString("idUser");
+                String nama_pengguna = "";
+                if(idUser != null ){
+                    nama_pengguna = resultSet.getString("nama_pengguna");
+                }else{
+                    nama_pengguna = resultSet.getString("Tidak ada Pemilik");
+                }
                 String ketersediaan = resultSet.getString("ketersediaan");
                 Timestamp waktuDitambahkan = resultSet.getTimestamp("waktuDitambahkan");
                 
-                Properti properti = new Properti(idProperti, nama, deskripsi, lokasi, harga, panjangRumah, lebarRumah, luasRumah, jumlahDiFavoritkan,idUser, ketersediaan, waktuDitambahkan);
+                Properti properti = new Properti(idProperti, nama, deskripsi, lokasi, harga, panjangRumah, lebarRumah, luasRumah, jumlahDiFavoritkan, idUser, ketersediaan, waktuDitambahkan);
+                properti.setNama_pengguna(nama_pengguna);
                 propertis.add(properti);
             }
         } catch (SQLException e) {

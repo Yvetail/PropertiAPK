@@ -16,6 +16,15 @@ public class Properti {
     private String idUser; // Menunjukkan pemilik Properti
     private String ketersediaan;
     private Timestamp waktuDitambahkan; // Tambahkan atribut waktuDitambahkan
+    private String nama_pengguna;
+
+    public String getNama_pengguna() {
+        return nama_pengguna;
+    }
+
+    public void setNama_pengguna(String nama_pengguna) {
+        this.nama_pengguna = nama_pengguna;
+    }
 
     // Constructor
     public Properti(String nama, String deskripsi, String lokasi, double harga, double panjangRumah, double lebarRumah, double luasRumah, double jumlahDiFavoritkan, String ketersediaan, Timestamp waktuDitambahkan, String idUser) {
@@ -218,7 +227,7 @@ public class Properti {
         System.out.println("Lebar Rumah: " + i.lebarRumah);
         System.out.println("Luas Rumah: " + i.luasRumah);
         System.out.println("Jumlah di Favoritkan: " + i.jumlahDiFavoritkan);
-        System.out.println("ID Pemilik Properti: " + i.idUser);
+        System.out.println("Pemilik Properti: " + i.nama_pengguna);
         System.out.println("Ketersediaan: " + i.ketersediaan);
         System.out.println("Waktu Ditambahkan: " + i.waktuDitambahkan);
     }
